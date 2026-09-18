@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+locale: "ar"
+
+collections:
+  - name: "site"
+    label: "محتوى الموقع"
+    files:
+      - name: "data"
+        label: "بيانات عين عتيق"
+        file: "content/data.json"
+        fields:
+          - label: "أخبار الجهة"
+            name: "news"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "اليوم", name: "day", widget: "string" }
+              - { label: "الشهر", name: "month", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "text" }
+              - { label: "الوسم", name: "tag", widget: "string" }
+
+          - label: "مصدر الأخبار"
+            name: "newsSource"
+            widget: "string"
+
+          - label: "المشاريع"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "text" }
+              - { label: "نسبة الإنجاز (%)", name: "pct", widget: "number", min: 0, max: 100 }
+
+          - label: "مراحل البنية التحتية"
+            name: "timeline"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "المرحلة", name: "phase", widget: "string" }
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "text" }
+
+          - label: "اقتباس المجتمع"
+            name: "communityQuote"
+            widget: "text"
+
+          - label: "صاحب الاقتباس"
+            name: "communityQuoteAuthor"
+            widget: "string"
+
+          - label: "مبادرات المجتمع"
+            name: "initiatives"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "العنوان", name: "title", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "text" }
+
+          - label: "مؤشرات البيئة"
+            name: "environment"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "الرقم", name: "value", widget: "string" }
+              - { label: "الوصف", name: "label", widget: "string" }
+
+          - label: "المناطق المجاورة"
+            name: "areas"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "الاسم", name: "name", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "string" }
+              - { label: "المسافة", name: "distance", widget: "string" }
+
+          - label: "خطوط الحافلات"
+            name: "buses"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "رقم الخط", name: "num", widget: "string" }
+              - { label: "الوجهة", name: "title", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "string" }
+              - { label: "التردد", name: "freq", widget: "string" }
+
+          - label: "مواقع مهمة"
+            name: "poi"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "الاسم", name: "name", widget: "string" }
+              - { label: "الوصف", name: "desc", widget: "string" }
